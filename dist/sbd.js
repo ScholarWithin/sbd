@@ -340,8 +340,9 @@ exports.sentences = function(text, user_options) {
         if (stringHelper.endsWithChar(words[i], "\"") || stringHelper.endsWithChar(words[i], "”")) {
             words[i] = words[i].slice(0, -1);
         }
+        
         // Catch Curly Quotes
-        if (stringHelper.endsWithChar(words[i], "&#8221;")) {
+        if (stringHelper.endsWith(words[i], "&#8221;")) {
             words[i] = words[i].slice(0, -7);
         }
 
