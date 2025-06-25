@@ -176,7 +176,9 @@ exports.isConcatenated = function(word) {
 exports.isBoundaryChar = function(word) {
     return word === "." ||
            word === "!" ||
-           word === "?";
+           word === "?" ||
+           word === ".&#8221;" ||
+           word === ".'&#8221;";
 };
 
 },{}],2:[function(require,module,exports){
