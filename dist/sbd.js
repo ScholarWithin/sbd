@@ -334,24 +334,25 @@ exports.sentences = function(text, user_options) {
             continue;
         }
 
+        // Catch Curly Quotes
+        if (stringHelper.endsWith(words[i], "&#8221;")) {
+            console.log("Curly HTML Quote found: " + words[i]);
+            words[i] = words[i].slice(0, -7);
+            console.log("Curly HTML Quote found: " + words[i]);
+        }
+
+        if (stringHelper.endsWithChar(words[i], "’\"") || stringHelper.endsWithChar(words[i], "'”") || stringHelper.endsWithChar(words[i], "'\"") || stringHelper.endsWithChar(words[i], "’”")) {
+            console.log("New Double Curly Quote found: " + words[i]);
+            words[i] = words[i].slice(0, -2);
+            console.log("New Double Curly Quote found: " + words[i]);
+        }
 
         if (stringHelper.endsWithChar(words[i], "\"") || stringHelper.endsWithChar(words[i], "”") || stringHelper.endsWithChar(words[i], "'") || stringHelper.endsWithChar(words[i], "’")) {
+            console.log("Quote found: " + words[i]);
             words[i] = words[i].slice(0, -1);
             console.log("Quote found: " + words[i]);
         }
         
-        if (stringHelper.endsWithChar(words[i], "’\"") || stringHelper.endsWithChar(words[i], "'”") || stringHelper.endsWithChar(words[i], "'\"") || stringHelper.endsWithChar(words[i], "’”")) {
-            words[i] = words[i].slice(0, -2);
-            console.log("New Curly Quote found: " + words[i]);
-
-        }
-
-
-        // Catch Curly Quotes
-        if (stringHelper.endsWith(words[i], "&#8221;")) {
-            console.log("Curly Quote found: " + words[i]);
-            words[i] = words[i].slice(0, -7);
-        }
 
         // A dot might indicate the end sentences
         // Exception: The next sentence starts with a word (non abbreviation)
