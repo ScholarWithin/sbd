@@ -344,11 +344,14 @@ exports.sentences = function(text, user_options) {
         //     // console.log("Curly HTML Quote found: " + words[i]);
         // }
 
-        if (stringHelper.endsWithChar(words[i], "\"") || stringHelper.endsWithChar(words[i], "”") || stringHelper.endsWithChar(words[i], "'") || stringHelper.endsWithChar(words[i], "’")) {
+        if (stringHelper.endsWithChar(words[i], "\"") || stringHelper.endsWithChar(words[i], "”")) {
+        // if (stringHelper.endsWithChar(words[i], "\"") || stringHelper.endsWithChar(words[i], "”") || stringHelper.endsWithChar(words[i], "'") || stringHelper.endsWithChar(words[i], "’")) { // with single quote
             // console.log("Quote found: " + words[i]);
             words[i] = words[i].slice(0, -1);
             // console.log("Quote found: " + words[i]);
-        } else if (stringHelper.endsWith(words[i], "&#8221;") || stringHelper.endsWith(words[i], "&#8217;")) {
+        // } else if (stringHelper.endsWith(words[i], "&#8221;") || stringHelper.endsWith(words[i], "&#8217;")) { // &#8217; single quote
+        } else if (stringHelper.endsWith(words[i], "&#8221;")) {
+
             // console.log("Curly HTML Quote found: " + words[i]);
             words[i] = words[i].slice(0, -7);
             // console.log("Curly HTML Quote found: " + words[i]);
