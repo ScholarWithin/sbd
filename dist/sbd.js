@@ -176,9 +176,7 @@ exports.isConcatenated = function(word) {
 exports.isBoundaryChar = function(word) {
     return word === "." ||
            word === "!" ||
-           word === "?" ||
-           word === ".&#8221;" ||
-           word === ".'&#8221;";
+           word === "?";
 };
 
 },{}],2:[function(require,module,exports){
@@ -344,6 +342,7 @@ exports.sentences = function(text, user_options) {
         if (stringHelper.endsWithChar(words[i], "’\"") || stringHelper.endsWithChar(words[i], "'”") || stringHelper.endsWithChar(words[i], "'\"") || stringHelper.endsWithChar(words[i], "’”")) {
             words[i] = words[i].slice(0, -2);
             console.log("New Curly Quote found: " + words[i]);
+            
         }
 
 
